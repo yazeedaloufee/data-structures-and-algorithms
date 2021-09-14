@@ -8,15 +8,26 @@ Write a function named `addOne` that takes an array of numbers, and returns a ne
 Use `forEach` to loop over the input array and work with each value.  Push the new value into a local array. Return the local array;
 ------------------------------------------------------------------------------------------------ */
 
-const addOne = (arr) => {
-  let array=[];
-  arr.forEach((value,idx)=>{
-    value=value+1;
-    array.push(value);
-  })
-  return array;
-  // Solution code here...
-};
+// const addOne = (arr) => {
+//   let array=[];
+//   arr.forEach((value,idx)=>{
+//     value=value+1;
+//     array.push(value);
+//   })
+//   return array;
+//   // Solution code here...
+// };
+
+const addOne = (arr)=>{
+const array=[];
+arr.forEach((value)=>{
+  array.push(value+1)
+  
+})
+
+return array;
+}
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -26,15 +37,23 @@ Write a function named `addExclamation` that takes an array of strings, and retu
 Use `forEach` to loop over the input array. Modify each string, and add the updated value into a local array. Return the local array;
 ------------------------------------------------------------------------------------------------ */
 
-const addExclamation = (arr) => {
-  // Solution code here...
-  let array=[];
-  arr.forEach((value,idx)=>{
-    value=value+"!";
-  array.push(value)
+// const addExclamation = (arr) => {
+//   // Solution code here...
+//   let array=[];
+//   arr.forEach((value,idx)=>{
+//     value=value+"!";
+//   array.push(value)
+//   })
+//   return array
+// };
+const addExclamation= (arr)=>{
+  const array=[];
+  arr.forEach(value=>{
+    array.push(value+'!')
   })
   return array;
-};
+
+}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -44,16 +63,24 @@ Write a function named `allUpperCase` that takes an array of strings, and return
 Use `forEach` to loop over the input array. The modified strings should each be added into a local array. Return that local array.
 ------------------------------------------------------------------------------------------------ */
 
-const allUpperCase = (arr) => {
-  // Solution code here...
-  let array=[];
-arr.forEach((value,idx)=>{
-  let valueU=value.toUpperCase();
-  array.push(valueU);
+// const allUpperCase = (arr) => {
+//   // Solution code here...
+//   let array=[];
+// arr.forEach((value,idx)=>{
+//   let valueU=value.toUpperCase();
+//   array.push(valueU);
 
-})
-return array;
-};
+// })
+// return array;
+// };
+const allUpperCase=(arr)=>{
+  const array=[];
+  console.log('in chalenge 1111111111111111111111111111111111111111111111111111111111');
+  arr.forEach(value=>{
+    array.push(value.toUpperCase())
+  })
+  return array;
+}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -65,19 +92,32 @@ Then, write a function named `speaker` that takes in an array of strings and a c
 Use `forEach` to build a new array of strings, each string modified by the callback. Return the new array. 
 ------------------------------------------------------------------------------------------------ */
 
-const greeting = (word) => {
-  // Solution code here...
-  return word.toUpperCase()+"!";
-};
+// const greeting = (word) => {
+//   // Solution code here...
+//   return word.toUpperCase()+"!";
+// };
 
-const speaker = (words, callback) => {
-  // Solution code here...
-  let array=[];
-  words.forEach((value,idx)=>{
-    array.push(callback(value))
-  })
-  return array;
-};
+// const speaker = (words, callback) => {
+//   // Solution code here...
+//   let array=[];
+//   words.forEach((value,idx)=>{
+//     array.push(callback(value))
+//   })
+//   return array;
+// };
+const greeting=(string)=>{
+  return string.toUpperCase()+'!'
+
+}
+const speaker=(arr,fun)=>{
+const array=[];
+
+arr.forEach(value=>{
+  array.push(fun(value))
+})
+return array;
+
+}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -95,21 +135,33 @@ Within the addNumbers function, invoke the callback function as many times as ne
 Return the modified array.
 ------------------------------------------------------------------------------------------------ */
 
-const addValues = (arr, value) => {
-  // Solution code here...
-  arr.push(value);
-};
+// const addValues = (arr, value) => {
+//   // Solution code here...
+//   arr.push(value);
+// };
 
-const addNumbers = (num, arr, times, callback) => {
-  for (let i = 0; i < times; i++) {
-     callback(arr,num);
-     console.log(arr);
+// const addNumbers = (num, arr, times, callback) => {
+//   for (let i = 0; i < times; i++) {
+//      callback(arr,num);
+//      console.log(arr);
+    
+//   }
+//   return arr;
+ 
+//   // Solution code here...
+// };
+
+const addValues=(arr,value)=>{
+  arr.push(value)
+
+}
+const addNumbers=(num,arr,numOfT,fun)=>{
+  for (let i = 0; i < numOfT; i++) {
+    fun(arr,num);
     
   }
   return arr;
- 
-  // Solution code here...
-};
+}
 
 /* ------------------------------------------------------------------------------------------------
 
@@ -129,16 +181,26 @@ The inventory is formatted like this:
 This function should use forEach to populate your grocery list based on the store's inventory. If the item is available, add it to your list. Return the final list.
 ------------------------------------------------------------------------------------------------ */
 
-const createList = (availableItems) => {
-  // Solution code here...
-  let array=[];
-  availableItems.forEach((value,idx)=>{
-    if(value.available===true){
-      array.push(value.name);
-    }
+// const createList = (availableItems) => {
+//   // Solution code here...
+//   let array=[];
+//   availableItems.forEach((value,idx)=>{
+//     if(value.available===true){
+//       array.push(value.name);
+//     }
+//   })
+//   return array;
+// };
+const createList =(arr)=>{
+  const array=[];
+  arr.forEach(value=>{
+    if(value.available===true){ array.push(value.name)}
   })
   return array;
-};
+
+}
+
+
 
 /* ------------------------------------------------------------------------------------------------
 STRETCH - CHALLENGE 7
@@ -154,28 +216,46 @@ Iterate over the array using forEach to determine the output based on several ru
 Return the resulting output array.
 ------------------------------------------------------------------------------------------------ */
 
-const fizzbuzz = (arr) => {
-  // Solution code here...
-  let array= [];
-  arr.forEach((value,idx)=>{
-    let x=0;
-    if(value%3===0){
-      if(value%5===0){
-        array.push('Fizz Buzz')
-        x=1
-      }else array.push('Fizz')
-    }
+// const fizzbuzz = (arr) => {
+//   // Solution code here...
+//   let array= [];
+//   arr.forEach((value,idx)=>{
+//     let x=0;
+//     if(value%3===0){
+//       if(value%5===0){
+//         array.push('Fizz Buzz')
+//         x=1
+//       }else array.push('Fizz')
+//     }
 
-    else if(value%5===0 && x===0){
-      if(value%3===0){
-        array.push('Fizz Buzz')
+//     else if(value%5===0 && x===0){
+//       if(value%3===0){
+//         array.push('Fizz Buzz')
 
-      }else array.push('Buzz')
-    }
-    else array.push(value)
+//       }else array.push('Buzz')
+//     }
+//     else array.push(value)
+//   })
+//   return array;
+// };
+const fizzbuzz=(arr)=>{
+  let array=[];
+  arr.forEach(value=>{
+if(value%3===0){
+  if(value%5===0){array.push('Fizz Buzz')}
+  else{array.push('Fizz')}
+}
+
+else if(value%5===0){
+  // if(value%3===0){array.push('Fizz Buzz')}
+  array.push('Buzz')}
+
+else{ array.push(value)}
+
   })
+console.log(array);
   return array;
-};
+}
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
