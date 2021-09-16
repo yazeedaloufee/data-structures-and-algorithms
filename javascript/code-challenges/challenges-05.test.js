@@ -11,14 +11,18 @@ should convert to ["Jane Doe", "James Bond"]
 Note the space in between first and last names.
 You can assume that neither firstName nor lastName will be blank
 ------------------------------------------------------------------------------------------------ */
-const toLastNames = (people) => {
+// const toLastNames = (people) => {
 
-  let folks = people.map((person, i) => {
-    return `${person.firstName} ${person.lastName}`;
-  });
+//   let folks = people.map((person, i) => {
+//     return `${person.firstName} ${person.lastName}`;
+//   });
 
-  return folks;
-};
+//   return folks;
+// };
+
+const toLastNames=(array)=>{
+  return array.map(value=>value.firstName+' '+value.lastName)
+}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -27,14 +31,16 @@ Write a function named addValues that, given an array of numbers as input, uses 
 
 ------------------------------------------------------------------------------------------------ */
 
-const addValues = (arr) => {
-  let sum = arr.reduce(function (accumulator, value, idx) {
-    accumulator = accumulator + value;
-    return accumulator;
-  }, 0);
-  return sum;
-};
-
+// const addValues = (arr) => {
+//   let sum = arr.reduce(function (accumulator, value, idx) {
+//     accumulator = accumulator + value;
+//     return accumulator;
+//   }, 0);
+//   return sum;
+// };
+const addValues = (arr)=>{
+  return arr.reduce((acc,value)=>acc+value,0)
+}
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
@@ -47,14 +53,18 @@ Write a function named addPurchases that, given an array of objects as input, us
 
 ------------------------------------------------------------------------------------------------ */
 
-const addPurchases = (arr) => {
-  // Solution code here...
-  let sum = arr.reduce(function (accumulator, value, idx) {
-    accumulator = accumulator + value.purchasePrice;
-    return accumulator;
-  }, 0);
-  return sum;
-};
+// const addPurchases = (arr) => {
+//   // Solution code here...
+//   let sum = arr.reduce(function (accumulator, value, idx) {
+//     accumulator = accumulator + value.purchasePrice;
+//     return accumulator;
+//   }, 0);
+//   return sum;
+// };
+
+const addPurchases = (arr)=>{
+  return arr.reduce((acc,value)=>acc+Number(value.purchasePrice),0)
+}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -64,14 +74,17 @@ Write a function named countNumberOfElements that, given an array as input, uses
 Note: You may not use the array's built-in length property.
 ------------------------------------------------------------------------------------------------ */
 
-const countNumberOfElements = (arr) => {
-  // Solution code here...
-  let sum = arr.reduce(function (accumulator, value, idx) {
-    accumulator = accumulator + 1;
-    return accumulator;
-  }, 0);
-  return sum;
-};
+// const countNumberOfElements = (arr) => {
+//   // Solution code here...
+//   let sum = arr.reduce(function (accumulator, value, idx) {
+//     accumulator = accumulator + 1;
+//     return accumulator;
+//   }, 0);
+//   return sum;
+// };
+const countNumberOfElements = (arr)=>{
+  return arr.reduce((acc,value)=>acc+1,0)
+}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -130,16 +143,22 @@ let starWarsData = [{
   gender: 'female'
 }];
 
-const returnNames = (arr) => {
-  let names = [];
-  arr.reduce(function (accumulator, value, idx) {
-    accumulator = accumulator + 1;
-    names.push(value.name);
-    return accumulator;
-  }, 0);
-  return names;
-};
-
+// const returnNames = (arr) => {
+//   let names = [];
+//   arr.reduce(function (accumulator, value, idx) {
+//     accumulator = accumulator + 1;
+//     names.push(value.name);
+//     return accumulator;
+//   }, 0);
+//   return names;
+// };
+const returnNames = (arr)=>{
+return arr.reduce((acc,value)=>{
+  
+  acc.push(value.name);
+return acc;
+},[])
+}
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
 
@@ -148,15 +167,20 @@ Write a function named reversedString that takes in a string and returns a strin
 Note: You must use reduce for this challenge. You may not use the built-in .reverse() string method.
 ------------------------------------------------------------------------------------------------ */
 
-const reversedString = (str) => {
-  // Solution code here...
-  let arr = str.split('');
-  let sum = arr.reduce(function (accumulator, value, idx) {
-    accumulator = value + accumulator;
-    return accumulator;
-  }, '');
-  return sum;
-};
+// const reversedString = (str) => {
+//   // Solution code here...
+//   let arr = str.split('');
+//   let sum = arr.reduce(function (accumulator, value, idx) {
+//     accumulator = value + accumulator;
+//     return accumulator;
+//   }, '');
+//   return sum;
+// };
+const reversedString = (str)=>{
+  let arr=str.split('')
+  return arr.reduce((acc,value)=>value+acc,'')
+
+}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
@@ -207,28 +231,35 @@ const characters = [
   },
 ];
 
-const countNumberOfChildren = (arr) => {
-  // Solution code here...
+// const countNumberOfChildren = (arr) => {
+//   // Solution code here...
 
-  // let total = arr.reduce((acc,value,idx)=>{
-  // if (value.children != undefined){ 
-  //   console.log(value.children.length);
-  //   acc=acc+value.children.length; 
-  //   console.log('acc>>',acc);
-  //   return acc;} //////the mistake here is that i should have closed the brackets ealier
-  // },0)
-  // console.log('sum>>>',total);
-  // return total;
-  let names = 0;
-  names = arr.reduce(function (accumulator, value, idx) {
+//   // let total = arr.reduce((acc,value,idx)=>{
+//   // if (value.children != undefined){ 
+//   //   console.log(value.children.length);
+//   //   acc=acc+value.children.length; 
+//   //   console.log('acc>>',acc);
+//   //   return acc;} //////the mistake here is that i should have closed the brackets ealier
+//   // },0)
+//   // console.log('sum>>>',total);
+//   // return total;
+//   let names = 0;
+//   names = arr.reduce(function (accumulator, value, idx) {
 
-    if (value.children != undefined) {
-      accumulator = accumulator + value.children.length;
-    }
-    return accumulator;
-  }, 0);
-  return names;
-};
+//     if (value.children != undefined) {
+//       accumulator = accumulator + value.children.length;
+//     }
+//     return accumulator;
+//   }, 0);
+//   return names;
+// };
+const countNumberOfChildren =(arr)=>{
+  return arr.reduce((acc,value)=>{
+    if(value.children!==undefined){return acc+value.children.length}
+    else{return acc}
+  
+  },0)
+}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 8 - Stretch Goal
@@ -238,18 +269,26 @@ Write a function that, given an array of numbers as input, uses reduce to calcul
 Hint: The accumulator should begin as { count: 0, sum: 0 }
 ------------------------------------------------------------------------------------------------ */
 
-const calculateAverage = (arr) => {
-  // Solution code here...
-  let sum = arr.reduce((acc, value, idx) => {
-    acc = acc + value;
-    return acc;
-  }, 0)
-  let count = arr.reduce((acc, value, idx) => {
-    acc = acc + 1;
-    return acc;
-  }, 0)
-  return sum / count;
-}
+// const calculateAverage = (arr) => {
+//   // Solution code here...
+//   let sum = arr.reduce((acc, value, idx) => {
+//     acc = acc + value;
+//     return acc;
+//   }, 0)
+//   let count = arr.reduce((acc, value, idx) => {
+//     acc = acc + 1;
+//     return acc;
+//   }, 0)
+//   return sum / count;
+// }
+const calculateAverage = (arr)=>{
+let accObj= arr.reduce((acc,value)=>{
+acc.sum=acc.sum+value;
+acc.count=acc.count+1
+
+return acc;
+},{ count: 0, sum: 0 })
+return accObj.sum/accObj.count}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 9 - Stretch Goal
@@ -268,16 +307,19 @@ const isPrime = (value) => {
   return value > 1;
 };
 
-const countPrimeNumbers = (arr) => {
-  // Solution code here...
-  let sum = arr.reduce((acc, value, idx) => {
-    if (isPrime(value)) {
-      acc = acc + 1;
-    }
-    return acc;
-  }, 0)
-  return sum;
-};
+// const countPrimeNumbers = (arr) => {
+//   // Solution code here...
+//   let sum = arr.reduce((acc, value, idx) => {
+//     if (isPrime(value)) {
+//       acc = acc + 1;
+//     }
+//     return acc;
+//   }, 0)
+//   return sum;
+// };
+const countPrimeNumbers = (arr)=>{
+  return arr.reduce((acc,value)=>isPrime(value)?acc+1:acc,0)
+}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 10 - Stretch Goal
@@ -318,22 +360,25 @@ const snorlaxData = {
   weight: 4600,
 };
 
+// const extractStat = (statName, arr) => {
+//   // Solution code here...
+//   let data = []
+//   data = arr.reduce((x, value, idx) => {
+//     if (value.stat.name === statName) {
+//       x = value;
+//     }
+//     return x;
+//   }, {})
+
+//   if (data === []) { return null; }
+//   else {
+//     return data;
+//   }
+// };
 const extractStat = (statName, arr) => {
-  // Solution code here...
-  let data = []
-  data = arr.reduce((x, value, idx) => {
-    if (value.stat.name === statName) {
-      x = value;
-    }
-    return x;
-  }, {})
+return arr.reduce((acc,value)=>statName===value.stat.name?value:acc,null)
 
-  if (data === []) { return null; }
-  else {
-    return data;
-  }
-};
-
+}
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 11 - Stretch Goal
 
@@ -344,36 +389,50 @@ Write a function named extractChildren that, given the array of characters from 
 2) Then, uses reduce to return an array of all the children's names in the filtered array
 ------------------------------------------------------------------------------------------------ */
 
+// const extractChildren = (arr) => {
+//   // Solution code here...
+//   let char = arr.filter((value, idx) => {
+//     let string1 = value.name.split('');
+//     // console.log('typeof',typeof string1,string1);
+//     let cond;
+//     cond = string1.filter((val, i) => {
+//       // console.log(cond);
+
+//       return val === 'a'
+//     })
+//     // console.log(`FOR ${value.name}`,cond);
+//     // console.log(cond.length>0); //console log the condition to find out what is wrong
+//     return cond.length > 0;
+//   })
+
+//   console.log("those who have a in thier name", char);
+
+//   let allchildren = char.reduce((acc, value, index) => {
+// if(value.children!==undefined){
+//     for (let i = 0; i < value.children.length; i++) {
+//       acc.push(value.children[i]);
+
+//     }
+//   }
+//     return acc;
+//   }, [])
+//   return allchildren;
+
+// };
 const extractChildren = (arr) => {
-  // Solution code here...
-  let char = arr.filter((value, idx) => {
-    let string1 = value.name.split('');
-    // console.log('typeof',typeof string1,string1);
-    let cond;
-    cond = string1.filter((val, i) => {
-      // console.log(cond);
+  let array=arr.filter(value=>value.name.includes('a'));
+  console.log(array);
 
-      return val === 'a'
-    })
-    // console.log(`FOR ${value.name}`,cond);
-    // console.log(cond.length>0); //console log the condition to find out what is wrong
-    return cond.length > 0;
-  })
+  return array.reduce((acc,value)=>{
+  if(value.children){  value.children.forEach(value=>acc.push(value))}
+  return acc;
 
-  console.log("those who have a in thier name", char);
 
-  let allchildren = char.reduce((acc, value, index) => {
-if(value.children!==undefined){
-    for (let i = 0; i < value.children.length; i++) {
-      acc.push(value.children[i]);
 
-    }
-  }
-    return acc;
-  }, [])
-  return allchildren;
+},[])
 
-};
+
+}
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
